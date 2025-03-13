@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Beginner</title>
+    <!-- Animation libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Magic Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magic/1.1.0/magic.min.css" />
+    <!-- Typed.js for typing animations -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- AOS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="container">
+        <header>
+            <div class="logo animate__animated animate__fadeInLeft">BLEARNING</div>
+
+            <!-- Add hamburger icon for mobile -->
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <nav class="animate__animated animate__fadeInDown">
+                <ul>
+                    <li><a href="#"><span>Home</span></a></li>
+                    <li><a href="#"><span>About</span></a></li>
+                    <li><a href="#"><span>Courses</span></a></li>
+                    <li><a href="#"><span>Blog</span></a></li>
+                </ul>
+                <!-- Add mobile version of sign-in button inside nav -->
+            </nav>
+            <!-- Mark the original button as desktop only -->
+            <button class="sign-in desktop-only animate__animated animate__fadeInRight">Sign In <i
+                    class="fas fa-sign-in-alt"></i></button>
+        </header>
+
+        <main>
+            <div class="content">
+                <h1 class="typing-text">UI. <span>Beginner's</span></h1>
+                <p class="subtext animate__animated animate__fadeInUp animate__delay-1s">Full Stack Developer
+                </p>
+                <p class="description animate__animated animate__fadeInUp animate__delay-1s">Start Guide for Beginner
+                    Designers</p>
+                <div class="buttons animate__animated animate__fadeInUp animate__delay-2s">
+                    <button class="start"><i class="fas fa-rocket"></i> Let's Start</button>
+                    <button class="read-more"><i class="fas fa-book"></i> Read More</button>
+                </div>
+
+                <div class="features">
+                    <div class="feature animate__animated animate__fadeInUp" data-aos="fade-up">
+                        <i class="fas fa-palette feature-icon"></i>
+                        <h3>Design Tools</h3>
+                        <p>Learn popular design tools</p>
+                    </div>
+                    <div class="feature animate__animated animate__fadeInUp" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-code feature-icon"></i>
+                        <h3>Coding</h3>
+                        <p>Basics of HTML & CSS</p>
+                    </div>
+                    <div class="feature animate__animated animate__fadeInUp" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-users feature-icon"></i>
+                        <h3>Community</h3>
+                        <p>Join our design community</p>
+                    </div>
+                </div>
+            </div>
+            <div class="image-container animate__animated animate__fadeInRight">
+                <div class="circle pulse"></div>
+                <div class="circle circle-2"></div>
+
+                <!-- Simplified image container with hover effects -->
+                <div class="hover-effect-container">
+                    <img src="img/Thiết kế chưa có tên (1).png" alt="UI Beginner" class="floating magictime"
+                        id="mainImage">
+                </div>
+            </div>
+        </main>
+
+        <div class="floating-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+            <div class="shape shape4"></div>
+        </div>
+
+        <footer class="animate__animated animate__fadeInUp">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+            <p>© 2025 UI Beginner's. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize libraries when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log("Document loaded");
+
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: false
+            });
+
+            // Clear the heading element first to prevent any issues
+            document.querySelector('.typing-text').innerHTML = '';
+
+            // Initialize Typed.js for the heading with improved setup
+            new Typed('.typing-text', {
+                strings: ['I\'m. <span>Hong Thinh\</span>'],
+                typeSpeed: 150,
+                startDelay: 300,
+                backSpeed: 50,
+                loop: false,
+                showCursor: false,
+                autoInsertCss: true,
+                contentType: 'html',
+                onComplete: function (self) {
+                    // Keep cursor visible for a moment then fade it out
+                    setTimeout(function () {
+                        const cursor = document.querySelector('.typed-cursor');
+                        if (cursor) {
+                            cursor.style.opacity = '0';
+                            cursor.style.transition = 'opacity 1s';
+                        }
+                    }, 1500);
+                }
+            });
+
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger-menu');
+            const nav = document.querySelector('nav');
+
+            console.log("Hamburger element:", hamburger);
+
+            if (hamburger) {
+                hamburger.addEventListener('click', function () {
+                    console.log("Hamburger clicked");
+                    this.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+
+            // Add this style for preventing scroll when menu is open
+            const style = document.createElement('style');
+            style.innerHTML = '.menu-open { overflow: hidden; }';
+            document.head.appendChild(style);
+
+            // Initialize particles.js
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 50,
+                        density: { enable: true, value_area: 800 }
+                    },
+                    color: { value: '#9932CC' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#9932CC',
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: true,
+                        out_mode: 'out'
+                    }
+                }
+            });
+
+            // Also handle mobile sign-in button click
+            const mobileSignIn = document.querySelector('.sign-in.mobile-only');
+            if (mobileSignIn) {
+                mobileSignIn.addEventListener('click', function () {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    // You can add sign-in functionality here
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

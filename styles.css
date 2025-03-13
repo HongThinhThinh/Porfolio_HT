@@ -1,0 +1,1426 @@
+body {
+    background: linear-gradient(135deg, #101010, #1d0030);
+    color: white;
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: bold;
+    background: linear-gradient(to right, #9932CC, #FF69B4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(153, 50, 204, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav a span {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(to right, #9932CC, #FF69B4);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover span {
+    transform: translateY(-3px);
+    display: inline-block;
+    color: #d9a4ff;
+}
+
+.sign-in {
+    background: linear-gradient(to right, #9932CC, #8A2BE2);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(153, 50, 204, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sign-in:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(153, 50, 204, 0.6);
+}
+
+/* Add these styles at the appropriate location in your CSS */
+.sign-in.mobile-only {
+    display: none;
+    /* Hidden by default */
+    margin-top: 30px;
+}
+
+.sign-in.desktop-only {
+    display: flex;
+    /* Shown by default */
+}
+
+/* Make sure both buttons look the same */
+.sign-in.mobile-only,
+.sign-in.desktop-only {
+    background: linear-gradient(to right, #9932CC, #8A2BE2);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(153, 50, 204, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Main content layout */
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.content {
+    flex: 1;
+    max-width: 600px;
+    padding-right: 30px;
+}
+
+/* Heading styles with Typed.js cursor support */
+.typing-text {
+    font-size: 64px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.typing-text span {
+    background: linear-gradient(to right, #9932CC, #FF69B4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Typed.js cursor */
+.typed-cursor {
+    font-size: 64px;
+    color: #9932CC;
+    opacity: 1;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.subtext {
+    color: #c8b6e2;
+    font-size: 24px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.description {
+    color: #a9a9a9;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.start,
+.read-more {
+    padding: 14px 28px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.start {
+    background: linear-gradient(to right, #9932CC, #8A2BE2);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(153, 50, 204, 0.4);
+}
+
+.start:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(153, 50, 204, 0.6);
+}
+
+.read-more {
+    border: 2px solid #9932CC;
+    background: transparent;
+    color: #9932CC;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.read-more::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(to right, #9932CC, #8A2BE2);
+    transition: all 0.3s;
+    z-index: -1;
+}
+
+.read-more:hover::before {
+    width: 100%;
+}
+
+.read-more:hover {
+    color: white;
+    border-color: transparent;
+}
+
+/* Feature cards */
+.features {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    min-width: 150px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(153, 50, 204, 0.4);
+    border: 1px solid rgba(153, 50, 204, 0.3);
+}
+
+.feature-icon {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #9932CC;
+    background: rgba(153, 50, 204, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+}
+
+.feature:hover .feature-icon {
+    transform: scale(1.2) rotate(360deg);
+    background: linear-gradient(to right, #9932CC, #FF69B4);
+    color: white;
+}
+
+.feature h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.feature p {
+    color: #a9a9a9;
+    font-size: 14px;
+}
+
+/* Image section */
+.image-container {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.image-container img {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+}
+
+/* Simplified hover effect styles */
+.hover-effect-container {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Main image styling */
+.hover-effect-container img {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
+}
+
+/* Clean hover effects for the container */
+.hover-effect-container:hover {
+    transform: translateY(-15px);
+}
+
+/* Simple shadow enhancement on hover */
+.hover-effect-container:hover img {
+    filter: drop-shadow(20px 10px 20px rgba(153, 50, 204, 0.6));
+}
+
+/* Remove the pseudo-elements completely */
+/* .hover-effect-container::before, .hover-effect-container::after {
+    content: none;
+} */
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(5px);
+}
+
+.circle:first-child {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #9932CC, #6a0dad);
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.8;
+}
+
+.circle-2 {
+    width: 150px;
+    height: 150px;
+    top: 40%;
+    left: 60%;
+    background: radial-gradient(circle, #FF69B4, #da70d6);
+    opacity: 0.6;
+}
+
+/* Simple animations using CSS */
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+.pulse {
+    animation: pulse 3s infinite;
+}
+
+/* Floating shapes */
+.floating-shapes .shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(10px);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.shape1 {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #9932CC, #FF69B4);
+    top: 10%;
+    left: 5%;
+    animation: floating 20s infinite linear;
+}
+
+.shape2 {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #FF69B4, #9932CC);
+    top: 70%;
+    left: 10%;
+    animation: floating 15s infinite linear reverse;
+}
+
+.shape3 {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #6a0dad, #9932CC);
+    top: 30%;
+    right: 10%;
+    animation: floating 18s infinite linear;
+}
+
+.shape4 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #da70d6, #FF69B4);
+    bottom: 10%;
+    right: 5%;
+    animation: floating 25s infinite linear reverse;
+}
+
+/* Footer styles */
+footer {
+    margin-top: 80px;
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    background: linear-gradient(to right, #9932CC, #8A2BE2);
+    transform: translateY(-5px);
+}
+
+/* Simple animation keyframes */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) translateX(-50%);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.1) translateX(-50%);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: scale(1) translateX(-50%);
+        opacity: 0.7;
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(10px, 10px) rotate(90deg);
+    }
+
+    50% {
+        transform: translate(0, 20px) rotate(180deg);
+    }
+
+    75% {
+        transform: translate(-10px, 10px) rotate(270deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column-reverse;
+    }
+
+    .content {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .features {
+        justify-content: center;
+    }
+
+    .image-container {
+        margin-bottom: 40px;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    nav ul li a {
+        display: block;
+        font-size: 22px;
+        padding: 10px;
+    }
+
+    nav ul li a::after {
+        bottom: 5px;
+        left: 25%;
+        width: 50%;
+    }
+
+    nav ul li a:hover::after {
+        width: 50%;
+    }
+
+    /* Fade in animation for menu items when menu opens */
+    nav.active ul li {
+        animation: fadeInDown 0.5s forwards;
+        opacity: 0;
+    }
+
+    nav.active ul li:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    nav.active ul li:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    nav.active ul li:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    nav.active ul li:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Keep the regular button hidden on mobile */
+    .sign-in.desktop-only {
+        display: none;
+    }
+
+    /* Show the mobile version of sign-in inside the menu */
+    .sign-in.mobile-only {
+        display: flex;
+        margin: 20px auto 0;
+        width: 80%;
+        max-width: 200px;
+        justify-content: center;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        margin-left: auto;
+        z-index: 1001;
+    }
+
+    /* Hamburger animation */
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    /* Fix navigation menu positioning and visibility */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(16, 16, 32, 0.97);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        /* Change to column to accommodate sign-in button */
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        /* Faster transition */
+        pointer-events: none;
+        visibility: hidden;
+        /* Add this */
+    }
+
+    /* Fix main content display when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    /* Ensure content is visible when menu is closed */
+    body:not(.menu-open) .container {
+        z-index: 1;
+        visibility: visible;
+        pointer-events: auto;
+        /* Ensure clickable */
+    }
+
+    nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        /* Add this */
+    }
+
+    /* Reset original responsive styles for normal nav positioning */
+    nav {
+        order: 0;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    header {
+        position: relative;
+        z-index: 999;
+    }
+
+    /* Fix for any potential elements getting stuck */
+    body.menu-open .container {
+        pointer-events: none;
+        /* Prevent interaction with background content */
+    }
+
+    body.menu-open header {
+        pointer-events: auto;
+        /* Keep header interactive */
+    }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .typing-text {
+        font-size: 72px;
+    }
+
+    .subtext {
+        font-size: 28px;
+    }
+}
+
+/* Medium screens (tablets and small desktops) */
+@media (max-width: 992px) {
+    .typing-text {
+        font-size: 54px;
+    }
+
+    .subtext {
+        font-size: 22px;
+    }
+
+    .feature {
+        min-width: 180px;
+    }
+}
+
+/* Small screens (tablets) */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 15px;
+        padding: 0;
+    }
+
+    .sign-in {
+        margin-left: auto;
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    main {
+        flex-direction: column-reverse;
+        margin-top: 30px;
+    }
+
+    .content {
+        padding-right: 0;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .features {
+        justify-content: center;
+    }
+
+    .image-container {
+        margin-bottom: 40px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .feature {
+        min-width: 200px;
+    }
+
+    .floating-shapes .shape {
+        opacity: 0.2;
+        /* Reduce opacity on mobile */
+    }
+}
+
+/* Extra small screens (mobile phones) */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 28px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .sign-in {
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+        order: 4;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav ul li {
+        flex: 1;
+        min-width: 70px;
+        text-align: center;
+    }
+
+    .typing-text {
+        font-size: 42px;
+    }
+
+    .subtext {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .start,
+    .read-more {
+        width: 100%;
+        justify-content: center;
+        max-width: 250px;
+    }
+
+    .features {
+        flex-direction: column;
+    }
+
+    .feature {
+        width: 100%;
+    }
+
+    .image-container {
+        width: 100%;
+    }
+
+    /* Adjust circle sizes */
+    .circle:first-child {
+        width: 200px;
+        height: 200px;
+    }
+
+    .circle-2 {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Hide some floating shapes on very small screens */
+    .shape3,
+    .shape4 {
+        display: none;
+    }
+
+    footer {
+        margin-top: 50px;
+        padding: 20px 0;
+    }
+
+    .sign-in {
+        margin-left: 15px;
+        /* Give some space between hamburger and sign in */
+        width: auto;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .logo {
+        width: auto;
+        /* Keep logo inline instead of full width */
+        margin-bottom: 0;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+
+    /* Reset conflicting styles */
+    .sign-in {
+        width: auto;
+        margin-top: 0;
+        order: 0;
+    }
+
+    .logo {
+        width: auto;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    header {
+        padding: 15px;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+    .typing-text {
+        font-size: 36px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav ul {
+        gap: 5px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    main {
+        margin-top: 20px;
+    }
+
+    .typing-text {
+        font-size: 36px;
+        margin-bottom: 5px;
+    }
+
+    .subtext {
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+
+    .description {
+        margin-bottom: 15px;
+    }
+
+    .buttons {
+        margin-top: 15px;
+    }
+
+    .feature {
+        padding: 15px;
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .features {
+        margin-top: 20px;
+    }
+
+    .image-container {
+        max-height: 60vh;
+        overflow: hidden;
+    }
+
+    footer {
+        margin-top: 30px;
+    }
+}
+
+/* Add hamburger menu styles */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1000;
+    position: relative;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #9932CC, #FF69B4);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Sign-in button variants */
+.sign-in.mobile-only {
+    display: none;
+    margin-top: 30px;
+}
+
+.sign-in.desktop-only {
+    display: flex;
+}
+
+/* Responsive styles - consolidated */
+/* Large screens (desktops) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .typing-text {
+        font-size: 72px;
+    }
+
+    .subtext {
+        font-size: 28px;
+    }
+}
+
+/* Medium screens (tablets and small desktops) */
+@media (max-width: 992px) {
+    .typing-text {
+        font-size: 54px;
+    }
+
+    .subtext {
+        font-size: 22px;
+    }
+
+    .feature {
+        min-width: 180px;
+    }
+}
+
+/* Small screens (tablets) - consolidated mobile menu styles */
+@media (max-width: 768px) {
+
+    /* Basic layout adjustments */
+    main {
+        flex-direction: column-reverse;
+        margin-top: 30px;
+    }
+
+    .content {
+        padding-right: 0;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .features {
+        justify-content: center;
+    }
+
+    .image-container {
+        margin-bottom: 40px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .feature {
+        min-width: 200px;
+    }
+
+    .floating-shapes .shape {
+        opacity: 0.2;
+    }
+
+    /* Header and Navigation */
+    header {
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 999;
+    }
+
+    .logo {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    /* Mobile menu toggle */
+    .hamburger-menu {
+        display: flex;
+        margin-left: auto;
+        z-index: 1001;
+    }
+
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    /* Mobile navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(16, 16, 32, 0.97);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        /* These changes ensure the menu is completely gone when not active */
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        /* Add this */
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        /* Add this */
+        pointer-events: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        padding: 0;
+        width: 100%;
+    }
+
+    nav ul li {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.5s ease;
+    }
+
+    nav.active ul li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    nav.active ul li:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    nav.active ul li:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    nav.active ul li:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    nav.active ul li:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    nav ul li a {
+        display: block;
+        font-size: 22px;
+        padding: 10px;
+    }
+
+    nav ul li a::after {
+        bottom: 5px;
+        left: 25%;
+        width: 50%;
+    }
+
+    nav ul li a:hover::after {
+        width: 50%;
+    }
+
+    /* Sign-in button adjustments */
+    .sign-in.desktop-only {
+        display: none;
+    }
+
+    .sign-in.mobile-only {
+        display: flex;
+        margin: 20px auto 0;
+        width: 80%;
+        max-width: 200px;
+        justify-content: center;
+    }
+
+    /* Fix main content display when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    body:not(.menu-open) .container {
+        z-index: 1;
+        visibility: visible;
+        pointer-events: auto;
+        /* Ensure clickable */
+    }
+
+    /* Fix for any potential elements getting stuck */
+    body.menu-open .container {
+        pointer-events: none;
+        /* Prevent interaction with background content */
+    }
+
+    body.menu-open header {
+        pointer-events: auto;
+        /* Keep header interactive */
+    }
+}
+
+/* Extra small screens (mobile phones) */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 15px;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .logo {
+        width: auto;
+        font-size: 28px;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .sign-in {
+        width: auto;
+        margin-top: 0;
+        order: 0;
+        margin-left: 15px;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav ul li {
+        flex: 1;
+        min-width: 70px;
+        text-align: center;
+    }
+
+    .typing-text {
+        font-size: 42px;
+    }
+
+    .subtext {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .start,
+    .read-more {
+        width: 100%;
+        justify-content: center;
+        max-width: 250px;
+    }
+
+    .features {
+        flex-direction: column;
+    }
+
+    .feature {
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .image-container {
+        width: 100%;
+    }
+
+    /* Adjust circle sizes */
+    .circle:first-child {
+        width: 200px;
+        height: 200px;
+    }
+
+    .circle-2 {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Hide some floating shapes on very small screens */
+    .shape3,
+    .shape4 {
+        display: none;
+    }
+
+    footer {
+        margin-top: 50px;
+        padding: 20px 0;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+    .typing-text {
+        font-size: 36px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav ul {
+        gap: 5px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    main {
+        margin-top: 20px;
+    }
+
+    .typing-text {
+        font-size: 36px;
+        margin-bottom: 5px;
+    }
+
+    .subtext {
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+
+    .description {
+        margin-bottom: 15px;
+    }
+
+    .buttons {
+        margin-top: 15px;
+    }
+
+    .feature {
+        padding: 15px;
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .features {
+        margin-top: 20px;
+    }
+
+    .image-container {
+        max-height: 60vh;
+        overflow: hidden;
+    }
+
+    footer {
+        margin-top: 30px;
+    }
+}
